@@ -77,8 +77,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ReadMe.MD" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="convert.png" />
     <Content Include="cycle_48.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
