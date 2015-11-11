@@ -1,4 +1,4 @@
-﻿namespace Convert
+﻿namespace ConvertTool
 {
     partial class frmConvert
     {
