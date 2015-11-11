@@ -1,7 +1,10 @@
 ##介绍
 C#写的小工具项目集合。
 ##模块
-###1.转换工具Convert  
+###1.转换工具ConvertTool  
 截图  
-![Convert](https://github.com/tinygg/Tools.Net/blob/master/Convert/convert.png?raw=true)  
+![ConvertTool](https://github.com/tinygg/Tools.Net/blob/master/Convert/convert.png?raw=true)  
+###2.正则测试工具RegexTool  
+截图
+![RegexTool](https://github.com/tinygg/Tools.Net/blob/master/RegexTool/regex.png?raw=true)  
 ###Other.持续添加中...

@@ -39,11 +39,12 @@
             // 
             // testBtn
             // 
+            this.testBtn.ForeColor = System.Drawing.Color.ForestGreen;
             this.testBtn.Location = new System.Drawing.Point(377, 26);
             this.testBtn.Name = "testBtn";
             this.testBtn.Size = new System.Drawing.Size(35, 310);
             this.testBtn.TabIndex = 0;
-            this.testBtn.Text = "测试正则";
+            this.testBtn.Text = "测试";
             this.testBtn.UseVisualStyleBackColor = true;
             this.testBtn.Click += new System.EventHandler(this.testBtn_Click);
             // 
@@ -98,7 +99,7 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "结果";
             // 
-            // Form1
+            // frmRegex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -110,7 +111,8 @@
             this.Controls.Add(this.regexTxtbox);
             this.Controls.Add(this.msgTxtbox);
             this.Controls.Add(this.testBtn);
-            this.Name = "Form1";
+            this.Name = "frmRegex";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "正则测试工具";
             this.ResumeLayout(false);
             this.PerformLayout();
