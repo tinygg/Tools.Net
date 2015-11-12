@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegex));
             this.testBtn = new System.Windows.Forms.Button();
             this.msgTxtbox = new System.Windows.Forms.TextBox();
             this.regexTxtbox = new System.Windows.Forms.TextBox();
@@ -111,6 +112,7 @@
             this.Controls.Add(this.regexTxtbox);
             this.Controls.Add(this.msgTxtbox);
             this.Controls.Add(this.testBtn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRegex";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "正则测试工具";
