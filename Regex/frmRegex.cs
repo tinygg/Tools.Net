@@ -17,11 +17,14 @@ namespace RegexTool
         {
             InitializeComponent();
             config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            string last = config.AppSettings.Settings["LAST_MSG"].Value;
-            string regex = config.AppSettings.Settings["LAST_REGEX"].Value;
+            if (null != config && null != config.AppSettings.Settings["LAST_MSG"] && null != config.AppSettings.Settings["LAST_REGEX"])
+            {
+                string last = config.AppSettings.Settings["LAST_MSG"].Value;
+                string regex = config.AppSettings.Settings["LAST_REGEX"].Value;
 
-            this.msgTxtbox.Text = last;
-            this.regexTxtbox.Text = regex;
+                this.msgTxtbox.Text = last;
+                this.regexTxtbox.Text = regex;
+            }
         }
 
         private void testBtn_Click(object sender, EventArgs e)
@@ -43,9 +46,12 @@ namespace RegexTool
             this.rlt_Txtbox.Text = msg;
 
             //保存最后测试
-            config.AppSettings.Settings["LAST_MSG"].Value = this.msgTxtbox.Text;
-            config.AppSettings.Settings["LAST_REGEX"].Value = this.regexTxtbox.Text;
-            config.Save(ConfigurationSaveMode.Modified);
+            if (null != config && null != config.AppSettings.Settings["LAST_MSG"] && null != config.AppSettings.Settings["LAST_REGEX"])
+            {
+                config.AppSettings.Settings["LAST_MSG"].Value = this.msgTxtbox.Text;
+                config.AppSettings.Settings["LAST_REGEX"].Value = this.regexTxtbox.Text;
+                config.Save(ConfigurationSaveMode.Modified);
+            }
         }
     }
 }
