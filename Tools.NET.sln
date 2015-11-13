@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Performance", "Performance\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexTool", "Regex\RegexTool.csproj", "{5709010E-2C82-425F-91A4-374055DA668A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncFTP", "SyncFTP\SyncFTP.csproj", "{5684F986-7D19-40F7-9BA8-4310A24F92B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{5709010E-2C82-425F-91A4-374055DA668A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5709010E-2C82-425F-91A4-374055DA668A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5709010E-2C82-425F-91A4-374055DA668A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5684F986-7D19-40F7-9BA8-4310A24F92B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5684F986-7D19-40F7-9BA8-4310A24F92B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5684F986-7D19-40F7-9BA8-4310A24F92B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5684F986-7D19-40F7-9BA8-4310A24F92B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

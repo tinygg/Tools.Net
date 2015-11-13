@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5684F986-7D19-40F7-9BA8-4310A24F92B6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SyncFTP</RootNamespace>
+    <AssemblyName>SyncFTP</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmFTPSync.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFTPSync.Designer.cs">
+      <DependentUpon>frmFTPSync.cs</DependentUpon>
+    </Compile>
+    <Compile Include="net\BaseSocket.cs" />
+    <Compile Include="net\ftp\BandwidthThrottler.cs" />
+    <Compile Include="net\ftp\CustomFileParsers.cs" />
+    <Compile Include="net\ftp\DirectoryEmptyStrings.cs" />
+    <Compile Include="net\ftp\FileNotFoundStrings.cs" />
+    <Compile Include="net\ftp\FileTransferException.cs" />
+    <Compile Include="net\ftp\FTPActiveDataSocket.cs" />
+    <Compile Include="net\ftp\FTPClient.cs" />
+    <Compile Include="net\ftp\FTPConnection.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="net\ftp\FTPControlSocket.cs" />
+    <Compile Include="net\ftp\FTPDataSocket.cs" />
+    <Compile Include="net\ftp\FTPException.cs" />
+    <Compile Include="net\ftp\FTPFile.cs" />
+    <Compile Include="net\ftp\FTPFileFactory.cs" />
+    <Compile Include="net\ftp\FTPFileParser.cs" />
+    <Compile Include="net\ftp\FTPPassiveDataSocket.cs" />
+    <Compile Include="net\ftp\FTPReply.cs" />
+    <Compile Include="net\ftp\FTPSemaphore.cs" />
+    <Compile Include="net\ftp\FTPTypes.cs" />
+    <Compile Include="net\ftp\IFileTransferClient.cs" />
+    <Compile Include="net\ftp\IFTPComponent.cs" />
+    <Compile Include="net\ftp\OS400FileParser.cs" />
+    <Compile Include="net\ftp\ServerStrings.cs" />
+    <Compile Include="net\ftp\TandemFileParser.cs" />
+    <Compile Include="net\ftp\TransferCompleteStrings.cs" />
+    <Compile Include="net\ftp\UnixFileParser.cs" />
+    <Compile Include="net\ftp\VMSFileParser.cs" />
+    <Compile Include="net\ftp\WindowsFileParser.cs" />
+    <Compile Include="net\HostNameResolver.cs" />
+    <Compile Include="net\Sync\SyncClient.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="util\debug\Appender.cs" />
+    <Compile Include="util\debug\FileAppender.cs" />
+    <Compile Include="util\debug\Level.cs" />
+    <Compile Include="util\debug\Logger.cs" />
+    <Compile Include="util\debug\LoggingLock.cs" />
+    <Compile Include="util\debug\LogTag.cs" />
+    <Compile Include="util\debug\MemoryAppender.cs" />
+    <Compile Include="util\debug\RollingFileAppender.cs" />
+    <Compile Include="util\debug\StandardOutputAppender.cs" />
+    <Compile Include="util\debug\TraceAppender.cs" />
+    <Compile Include="util\PathUtil.cs" />
+    <Compile Include="util\StringSplitter.cs" />
+    <Compile Include="util\VersionDetails.cs" />
+    <EmbeddedResource Include="frmFTPSync.resx">
+      <DependentUpon>frmFTPSync.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="net\ftp\FTPConnection.resx">
+      <DependentUpon>FTPConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="ReadMe.MD" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ftp_sync.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
