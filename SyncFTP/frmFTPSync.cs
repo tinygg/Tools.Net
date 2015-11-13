@@ -7,14 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using EnterpriseDT.Net.Ftp.Sync;
-using EnterpriseDT.Util.Debug;
+using log4net;
+using log4net.Repository.Hierarchy;
 
 namespace SyncFTP
 {
     public partial class frmFTPSync : Form
     {
         private SyncClient client = null;
-        private Logger log = Logger.GetLogger("frmFTPSync");
+        private ILog log = log4net.LogManager.GetLogger("frmFTPSync");
         public frmFTPSync()
         {
             InitializeComponent();
