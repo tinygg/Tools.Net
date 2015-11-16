@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFTPSync));
             this.start_btn = new System.Windows.Forms.Button();
             this.logBox = new System.Windows.Forms.RichTextBox();
             this.stop_btn = new System.Windows.Forms.Button();
@@ -242,6 +243,7 @@
             this.Controls.Add(this.stop_btn);
             this.Controls.Add(this.logBox);
             this.Controls.Add(this.start_btn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmFTPSync";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "==FTP.Sync== FTP同 步";

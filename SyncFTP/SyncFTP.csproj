@@ -46,6 +46,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Tools.NET.S.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net">
       <HintPath>..\shared.dll\log4net.dll</HintPath>
@@ -144,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ftp_sync.png" />
+    <Content Include="Tools.NET.S.ico" />
     <None Include="log4net.config">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
