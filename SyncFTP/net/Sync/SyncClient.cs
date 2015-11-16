@@ -65,8 +65,10 @@ namespace EnterpriseDT.Net.Ftp.Sync
             }
         }
 
+        private int sync_interval_seconds = 4;
         public bool Start(int sync_interval_seconds)
         {
+            this.sync_interval_seconds = sync_interval_seconds;
             try
             {
                 connection.Connect();
@@ -123,7 +125,11 @@ namespace EnterpriseDT.Net.Ftp.Sync
             }
             catch (Exception e)
             {
-                log.Info("其他异常:" + e.Message);
+                if (!this.CloseByHand)
+                {
+                    PrintEventHandler("遇到未知异常:" + e.Message + Environment.NewLine);
+                    this.AutoRestart();
+                }
             }
 
         }
@@ -169,7 +175,26 @@ namespace EnterpriseDT.Net.Ftp.Sync
             //目录
             else
             {
+                bool need_download = false;
+                //不存在
                 if (!File.Exists(tmp_local_path))
+                {
+                    need_download = true;
+                    PrintEventHandler("#下载文件#" + tmp_local_path);
+                }
+                else
+                {
+                    //存在
+                    long local_file_size = new FileInfo(tmp_local_path).Length;
+
+                    if (local_file_size != dir_or_file.Size)
+                    {
+                        need_download = true;
+                        PrintEventHandler("#更新文件#" + tmp_local_path);
+                    }
+                }
+
+                if (need_download)
                 {
                     PrintEventHandler("#下载文件#" + tmp_local_path);
                     try
@@ -178,7 +203,10 @@ namespace EnterpriseDT.Net.Ftp.Sync
                     }
                     catch (Exception e)
                     {
-                        PrintEventHandler("【异常】下载文件:" + e.Message);
+                        if (!this.CloseByHand)
+                        {
+                            PrintEventHandler("【异常】下载文件:" + e.Message);
+                        }
                     }
 
 
@@ -187,12 +215,15 @@ namespace EnterpriseDT.Net.Ftp.Sync
 
         }
 
-
+        private bool CloseByHand = false;
         /// <summary>
         /// 停止
         /// </summary>
         public void Stop()
         {
+            this.CloseByHand = true;
+            PrintEventHandler("手动关闭同步.");
+
             if (sync_timer != null)
             {
                 sync_timer.Enabled = false;
@@ -204,5 +235,20 @@ namespace EnterpriseDT.Net.Ftp.Sync
                 connection.Close();
             }
         }
+
+        public void AutoRestart()
+        {
+            if (this.CloseByHand)
+            {
+                PrintEventHandler("手动关闭的连接,不可自动恢复,请手动[启动].");
+            }
+            else
+            {
+                PrintEventHandler("尝试重新连接 ...");
+                Stop();
+                this.Start(this.sync_interval_seconds);
+            }
+        }
+
     }
 }
