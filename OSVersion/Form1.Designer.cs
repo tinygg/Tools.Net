@@ -1,4 +1,4 @@
-﻿namespace Performance
+﻿namespace OSVersion
 {
     partial class Form1
     {
@@ -28,34 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.PDF2Word = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // PDF2Word
-            // 
-            this.PDF2Word.Location = new System.Drawing.Point(97, 60);
-            this.PDF2Word.Name = "PDF2Word";
-            this.PDF2Word.Size = new System.Drawing.Size(75, 23);
-            this.PDF2Word.TabIndex = 0;
-            this.PDF2Word.Text = "PDF转Word";
-            this.PDF2Word.UseVisualStyleBackColor = true;
-            this.PDF2Word.Click += new System.EventHandler(this.PDF2Word_Click);
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 236);
-            this.Controls.Add(this.PDF2Word);
-            this.Name = "Form1";
-            this.Text = "性能工具";
-            this.ResumeLayout(false);
-
+            this.Text = "Form1";
         }
 
         #endregion
-
-        private System.Windows.Forms.Button PDF2Word;
     }
 }
 
