@@ -12,4 +12,12 @@ C#写的小工具项目集合。
 ###3.FTP同步工具SyncFTP  
 ![SyncFTP](https://raw.githubusercontent.com/tinygg/Tools.Net/master/SyncFTP/ftp_sync.png)  
 
+##4.XmlToObject对象提取工具  
+![XmlToObject](https://raw.githubusercontent.com/tinygg/Tools.Net/master/XmlToObject/XmlToObject.png)  
+
+##5.LogFinder日志提取工具  
+![XmlToObject](https://raw.githubusercontent.com/tinygg/Tools.Net/master/LogFinder/LogFinder.png)  
+
+
 ###Other.持续添加中...
+

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Xml2Object));
             this.oldTree = new System.Windows.Forms.TreeView();
             this.oldTreeMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.setRootMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -247,6 +248,7 @@
             this.Controls.Add(this.delBtn);
             this.Controls.Add(this.newTree);
             this.Controls.Add(this.oldTree);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Xml2Object";
             this.oldTreeMenu.ResumeLayout(false);
             this.ResumeLayout(false);
