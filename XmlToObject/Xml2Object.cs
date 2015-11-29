@@ -123,19 +123,49 @@ namespace XmlToObject
             }
         }
 
+        public bool CheckXMLNS(XmlDocument doc, out XmlNamespaceManager nsmgr)
+        {
+            //正则匹配添加  
+            // xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"
+            nsmgr = new XmlNamespaceManager(doc.NameTable);
+            if (!string.IsNullOrEmpty(doc.DocumentElement.NamespaceURI))
+            {
+                nsmgr.AddNamespace(doc.DocumentElement.Prefix, doc.DocumentElement.NamespaceURI);
+                return true;
+            }
+
+            //nsmgr.AddNamespace("soapenv", "http://schemas.xmlsoap.org/soap/envelope/");
+            //nsmgr.AddNamespace("xsd", "http://www.w3.org/2001/XMLSchema");
+            //nsmgr.AddNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
+
+            return false;
+        }
+
+        bool hasXMLNS = false;
+        XmlNamespaceManager nsmgr = null;
         private void jsonBtn_Click(object sender, EventArgs e)
         {
             //List<JObject> rlt = new List<JObject>();
             if (!string.IsNullOrEmpty(this.rootLabel.Text) && this.newTree.Nodes.Count > 0)
             {
-                XmlNodeList findList = doc.SelectNodes(this.rootLabel.Text);
+                hasXMLNS = CheckXMLNS(doc, out nsmgr);
 
-                this.progressBar1.Maximum = findList.Count;
+                if (hasXMLNS)
+                {
+                    XmlNodeList findList = doc.SelectNodes(this.rootLabel.Text, nsmgr);
+                    this.progressBar1.Maximum = findList.Count;
+                    Thread fThread = new Thread(new ParameterizedThreadStart(DoWork));//开辟一个新的线程
+                    fThread.Start(findList);
+                }
+                else
+                {
+                    XmlNodeList findList = doc.SelectNodes(this.rootLabel.Text);
+                    this.progressBar1.Maximum = findList.Count;
+                    Thread fThread = new Thread(new ParameterizedThreadStart(DoWork));//开辟一个新的线程
+                    fThread.Start(findList);
+                }
 
-                Thread fThread = new Thread(new ParameterizedThreadStart(DoWork));//开辟一个新的线程
-                fThread.Start(findList);
             }
-
             this.logBox.Text = ("");
         }
 
@@ -152,31 +182,39 @@ namespace XmlToObject
                     TreeNode item = newTree.Nodes[i];
 
                     string replaceStr = this.rootLabel.Text;
-                    string tmp_xpath = item.Text.Replace(replaceStr, replaceStr + "[" + (j + 1) + "]");
+                    string tmp_xpath = item.Text.Replace(replaceStr, replaceStr + "[" + j + "]");
                     //XmlNodeList tmp = node.SelectNodes(tmp_xpath);
-                    XmlNodeList tmp = doc.SelectNodes(tmp_xpath);
+                    XmlNodeList tmp = null;
+                    if (hasXMLNS)
+                    {
+                        tmp = doc.SelectNodes(tmp_xpath, nsmgr);
+                    }
+                    else
+                    {
+                        tmp = doc.SelectNodes(tmp_xpath);
+                    }
 
                     string key = string.Empty;
                     Regex keyRegex = new Regex("/(.*)$");
                     Match keyMatch = keyRegex.Match(item.Text);
-                    if (keyMatch.Success)
+                    if (tmp.Count > 0 && keyMatch.Success)
                     {
                         if (tmp.Count == 1)
                         {
                             string name = tmp[0].Name;
 
 
-                            if (name.ToLower() == "createtime")
-                            {
-                                string value = tmp[0].InnerText;
-                                obj.Add(new JProperty(name, value));
+                            //if (name.ToLower() == "createtime")
+                            //{
+                            //    string value = tmp[0].InnerText;
+                            //    obj.Add(new JProperty(name, value));
 
-                                DateTime dt = new DateTime((long)Convert.ToUInt64(value) * 10000 + 621355968000000000);
-                                string date_str = dt.ToString("yyyy-MM-dd");
-                                string url = "/post/" + date_str + "/" + obj.GetValue("Id");
-                                obj.Add(new JProperty("Url", url));
-                            }
-                            else
+                            //    DateTime dt = new DateTime((long)Convert.ToUInt64(value) * 10000 + 621355968000000000);
+                            //    string date_str = dt.ToString("yyyy-MM-dd");
+                            //    string url = "/post/" + date_str + "/" + obj.GetValue("Id");
+                            //    obj.Add(new JProperty("Url", url));
+                            //}
+                            //else
                             {
                                 string value = tmp[0].InnerText;
                                 obj.Add(new JProperty(name, value));

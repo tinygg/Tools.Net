@@ -44,10 +44,10 @@
             this.handleThenJson = new System.Windows.Forms.Button();
             this.sureBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.rootLabel = new System.Windows.Forms.Label();
             this.logBox = new System.Windows.Forms.RichTextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.progressNum = new System.Windows.Forms.Label();
+            this.rootLabel = new System.Windows.Forms.TextBox();
             this.oldTreeMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -185,15 +185,6 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "根节点";
             // 
-            // rootLabel
-            // 
-            this.rootLabel.AutoSize = true;
-            this.rootLabel.Location = new System.Drawing.Point(399, 22);
-            this.rootLabel.Name = "rootLabel";
-            this.rootLabel.Size = new System.Drawing.Size(29, 12);
-            this.rootLabel.TabIndex = 12;
-            this.rootLabel.Text = "root";
-            // 
             // logBox
             // 
             this.logBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -227,15 +218,22 @@
             this.progressNum.TabIndex = 15;
             this.progressNum.Text = "0/1";
             // 
+            // rootLabel
+            // 
+            this.rootLabel.Location = new System.Drawing.Point(418, 19);
+            this.rootLabel.Name = "rootLabel";
+            this.rootLabel.Size = new System.Drawing.Size(342, 21);
+            this.rootLabel.TabIndex = 16;
+            // 
             // Xml2Object
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(920, 605);
+            this.Controls.Add(this.rootLabel);
             this.Controls.Add(this.progressNum);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.logBox);
-            this.Controls.Add(this.rootLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.sureBtn);
             this.Controls.Add(this.handleThenJson);
@@ -250,6 +248,7 @@
             this.Controls.Add(this.oldTree);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Xml2Object";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.oldTreeMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -272,10 +271,10 @@
         private System.Windows.Forms.ContextMenuStrip oldTreeMenu;
         private System.Windows.Forms.ToolStripMenuItem setRootMenu;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label rootLabel;
         private System.Windows.Forms.RichTextBox logBox;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label progressNum;
+        private System.Windows.Forms.TextBox rootLabel;
     }
 }
 
