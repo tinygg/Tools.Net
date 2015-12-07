@@ -65,10 +65,12 @@ namespace SyncFTP
             {
                 remote_dir = "/";
             }
+
             client = new SyncClient(address, port, user_name,
                                                 passsword,
                                                 this.sync_local_dir, null,
-                                                remote_dir);
+                                                remote_dir, this.deleteRemoteCheckBox.Checked);
+
             client.PrintEventHandler -= Print;
             client.PrintEventHandler += Print;
 
@@ -85,6 +87,19 @@ namespace SyncFTP
                 MessageBox.Show("请填写正确的同步间隔！");
             }
 
+            this.deleteRemoteCheckBox.Enabled = false;
+            this.ipBox.Enabled = false;
+            this.portBox.Enabled = false;
+            this.user_name_box.Enabled = false;
+            this.password_box.Enabled = false;
+            this.intervalBox.Enabled = false;
+            this.local_choose.Enabled = false;
+            this.remote_dir.Enabled = false;
+
+            this.start_btn.Enabled = false;
+            this.stop_btn.Enabled = true;
+
+            //保存配置 TODO
 
         }
 
@@ -93,7 +108,18 @@ namespace SyncFTP
             if (client != null)
             {
                 client.Stop();
+                this.deleteRemoteCheckBox.Enabled = true;
+                this.ipBox.Enabled = true;
+                this.portBox.Enabled = true;
+                this.user_name_box.Enabled = true;
+                this.password_box.Enabled = true;
+                this.intervalBox.Enabled = true;
+                this.local_choose.Enabled = true;
+                this.remote_dir.Enabled = true;
             }
+
+            this.start_btn.Enabled = true;
+            this.stop_btn.Enabled = false;
         }
 
         string sync_local_dir = string.Empty;
@@ -113,14 +139,31 @@ namespace SyncFTP
             msg += txt + Environment.NewLine;
             if (this.logBox.InvokeRequired)
             {
-                Action<string> delegate_ = (x) => { this.logBox.AppendText(x); };
+                Action<string> delegate_ = (x) => {
+                    if (this.logBox.Lines.Count() > 1000)
+                    {
+                        this.logBox.Clear();
+                    }
+                    this.logBox.AppendText(x); 
+                };
                 this.logBox.Invoke(delegate_, msg);
             }
             else
             {
+                if (this.logBox.Lines.Count() > 1000)
+                {
+                    this.logBox.Clear();
+                }
                 this.logBox.AppendText(msg);
             }
             log.Info(msg);
         }
+
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            this.logBox.Clear();
+        }
+
+
     }
 }

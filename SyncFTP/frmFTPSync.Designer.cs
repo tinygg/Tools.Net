@@ -47,6 +47,7 @@
             this.remote_dir = new System.Windows.Forms.TextBox();
             this.intervalBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.deleteRemoteCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // start_btn
@@ -97,7 +98,7 @@
             this.ipBox.Name = "ipBox";
             this.ipBox.Size = new System.Drawing.Size(127, 21);
             this.ipBox.TabIndex = 5;
-            this.ipBox.Text = "vps.wiseloader.com";
+            this.ipBox.Text = "172.16.1.114";
             // 
             // label2
             // 
@@ -114,7 +115,7 @@
             this.portBox.Name = "portBox";
             this.portBox.Size = new System.Drawing.Size(39, 21);
             this.portBox.TabIndex = 7;
-            this.portBox.Text = "21";
+            this.portBox.Text = "2121";
             // 
             // user_name_box
             // 
@@ -122,7 +123,7 @@
             this.user_name_box.Name = "user_name_box";
             this.user_name_box.Size = new System.Drawing.Size(50, 21);
             this.user_name_box.TabIndex = 9;
-            this.user_name_box.Text = "fuck";
+            this.user_name_box.Text = "dc_tel_in";
             // 
             // label3
             // 
@@ -139,7 +140,7 @@
             this.password_box.Name = "password_box";
             this.password_box.Size = new System.Drawing.Size(56, 21);
             this.password_box.TabIndex = 11;
-            this.password_box.Text = "fuck";
+            this.password_box.Text = "dctel";
             this.password_box.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label4
@@ -162,6 +163,7 @@
             this.clearBtn.TabIndex = 12;
             this.clearBtn.Text = "--------------";
             this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
             // label5
             // 
@@ -209,7 +211,7 @@
             this.intervalBox.Name = "intervalBox";
             this.intervalBox.Size = new System.Drawing.Size(39, 21);
             this.intervalBox.TabIndex = 18;
-            this.intervalBox.Text = "5";
+            this.intervalBox.Text = "3";
             // 
             // label7
             // 
@@ -220,11 +222,24 @@
             this.label7.TabIndex = 17;
             this.label7.Text = "同步间隔(s)";
             // 
+            // deleteRemoteCheckBox
+            // 
+            this.deleteRemoteCheckBox.AutoSize = true;
+            this.deleteRemoteCheckBox.Checked = true;
+            this.deleteRemoteCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.deleteRemoteCheckBox.Location = new System.Drawing.Point(55, 159);
+            this.deleteRemoteCheckBox.Name = "deleteRemoteCheckBox";
+            this.deleteRemoteCheckBox.Size = new System.Drawing.Size(72, 16);
+            this.deleteRemoteCheckBox.TabIndex = 19;
+            this.deleteRemoteCheckBox.Text = "删除远程";
+            this.deleteRemoteCheckBox.UseVisualStyleBackColor = true;
+            // 
             // frmFTPSync
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 261);
+            this.Controls.Add(this.deleteRemoteCheckBox);
             this.Controls.Add(this.intervalBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.remote_dir);
@@ -272,6 +287,7 @@
         private System.Windows.Forms.TextBox remote_dir;
         private System.Windows.Forms.TextBox intervalBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox deleteRemoteCheckBox;
 
     }
 }

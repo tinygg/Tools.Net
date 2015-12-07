@@ -15,6 +15,8 @@ namespace EnterpriseDT.Net.Ftp.Sync
         private FTPConnection connection = new FTPConnection();
         private string remote_sync_dir = string.Empty;
         private string local_base_dir = string.Empty;
+        //是否删除远程
+        private bool deleteRemote = false;
 
         public delegate void PrintLog(string msg);
 
@@ -26,7 +28,7 @@ namespace EnterpriseDT.Net.Ftp.Sync
         }
 
         private Timer sync_timer = new Timer();
-        public SyncClient(string address, string port, string user_name, string password, string local_base_dir, Encoding encoding, string remote_sync_dir = null)
+        public SyncClient(string address, string port, string user_name, string password, string local_base_dir, Encoding encoding, string remote_sync_dir = null, bool deleteRemote = false)
         {
             PrintEventHandler = new PrintLog(PrintOut);
 
@@ -55,6 +57,8 @@ namespace EnterpriseDT.Net.Ftp.Sync
                     remote_sync_dir = "/";
                 }
                 this.remote_sync_dir = remote_sync_dir;
+
+                this.deleteRemote = deleteRemote;
 
                 connection.AutoLogin = true;
             }
@@ -176,7 +180,7 @@ namespace EnterpriseDT.Net.Ftp.Sync
             else
             {
                 bool need_download = false;
-                //不存在
+                //本地不存在
                 if (!File.Exists(tmp_local_path))
                 {
                     need_download = true;
@@ -184,9 +188,9 @@ namespace EnterpriseDT.Net.Ftp.Sync
                 }
                 else
                 {
-                    //存在
+                    //本地存在
                     long local_file_size = new FileInfo(tmp_local_path).Length;
-
+                    //大小不一致
                     if (local_file_size != dir_or_file.Size)
                     {
                         need_download = true;
@@ -200,6 +204,11 @@ namespace EnterpriseDT.Net.Ftp.Sync
                     try
                     {
                         connection.DownloadFile(tmp_local_path, dir_or_file.Path);
+                        if (this.deleteRemote)
+                        {
+                            connection.DeleteFile(dir_or_file.Path);
+                            PrintEventHandler("#删除远程文件#" + dir_or_file.Path);
+                        }
                     }
                     catch (Exception e)
                     {
@@ -208,8 +217,15 @@ namespace EnterpriseDT.Net.Ftp.Sync
                             PrintEventHandler("【异常】下载文件:" + e.Message);
                         }
                     }
-
-
+                }
+                else
+                {
+                    PrintEventHandler("本地已存在，不需下载.");
+                    if (this.deleteRemote)
+                    {
+                        connection.DeleteFile(dir_or_file.Path);
+                        PrintEventHandler("#删除远程文件#" + dir_or_file.Path);
+                    }
                 }
             }
 
