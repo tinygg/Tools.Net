@@ -71,6 +71,9 @@
     <Compile Include="frmFTPSync.Designer.cs">
       <DependentUpon>frmFTPSync.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmFTPSyncNewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="net\BaseSocket.cs" />
     <Compile Include="net\ftp\BandwidthThrottler.cs" />
     <Compile Include="net\ftp\CustomFileParsers.cs" />
@@ -105,21 +108,28 @@
     <Compile Include="net\Sync\SyncClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="util\debug\Appender.cs" />
-    <Compile Include="util\debug\FileAppender.cs" />
-    <Compile Include="util\debug\Level.cs" />
-    <Compile Include="util\debug\Logger.cs" />
-    <Compile Include="util\debug\LoggingLock.cs" />
-    <Compile Include="util\debug\LogTag.cs" />
-    <Compile Include="util\debug\MemoryAppender.cs" />
-    <Compile Include="util\debug\RollingFileAppender.cs" />
-    <Compile Include="util\debug\StandardOutputAppender.cs" />
-    <Compile Include="util\debug\TraceAppender.cs" />
+    <Compile Include="util\other\Appender.cs" />
+    <Compile Include="util\other\CustomLogLevelAppender.cs" />
+    <Compile Include="util\other\FileAppender.cs" />
+    <Compile Include="util\other\ILogTag.cs" />
+    <Compile Include="util\other\Level.cs" />
+    <Compile Include="util\other\Lock.cs" />
+    <Compile Include="util\other\Logger.cs" />
+    <Compile Include="util\other\LogLevel.cs" />
+    <Compile Include="util\other\LogLevelHelper.cs" />
+    <Compile Include="util\other\LogMessageEventArgs.cs" />
+    <Compile Include="util\other\LogMessageHandler.cs" />
+    <Compile Include="util\other\LogTag.cs" />
+    <Compile Include="util\other\MemoryAppender.cs" />
+    <Compile Include="util\other\RollingFileAppender.cs" />
+    <Compile Include="util\other\StandardOutputAppender.cs" />
+    <Compile Include="util\other\TraceAppender.cs" />
     <Compile Include="util\PathUtil.cs" />
     <Compile Include="util\StringSplitter.cs" />
     <Compile Include="util\VersionDetails.cs" />
     <EmbeddedResource Include="frmFTPSync.resx">
       <DependentUpon>frmFTPSync.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="net\ftp\FTPConnection.resx">
       <DependentUpon>FTPConnection.cs</DependentUpon>

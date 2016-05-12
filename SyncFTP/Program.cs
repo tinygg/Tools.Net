@@ -15,7 +15,8 @@ namespace SyncFTP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmFTPSync());
+            //Application.Run(new frmFTPSync());
+            Application.Run(new frmFTPSyncNewer());
         }
     }
 }
