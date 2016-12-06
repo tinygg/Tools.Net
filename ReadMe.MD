@@ -18,7 +18,7 @@ C#写的小工具项目集合。[工具集地址](https://github.com/tinygg/Tool
 
 ##5.LogFinder日志提取工具  
 ![XmlToObject](https://raw.githubusercontent.com/tinygg/Tools.Net/master/LogFinder/LogFinder.png)  
-
+![LogFinder2](https://raw.githubusercontent.com/tinygg/Tools.Net/master/LogFinder/LogFinder2.png)  
 
 ###Other.持续添加中...
 

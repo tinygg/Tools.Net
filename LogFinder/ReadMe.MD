@@ -10,3 +10,7 @@
 
 ##使用方法  
 参考2个截图.  
+
+##升级日志  
+2016-12-06  增加一个完全用正则匹配所有行的tab页面  
+![LogFinder2](https://raw.githubusercontent.com/tinygg/Tools.Net/master/LogFinder/LogFinder2.png)  
