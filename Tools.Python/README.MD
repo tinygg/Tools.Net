@@ -1,6 +1,6 @@
 # python写的工具集
 <pre>
-D:\personal\Tools.TINY>python d:/personal/Tools.TINY/Tools.Python/FileEncodingTransfer/coding.py utf8 d:/personal/Tools.TINY/Tools.Python/FileEncodingTransfer/filedir
+D:\personal\Tools.TINY\Tools.Python\FileEncodingTransfer\>python coding.py utf8 filedir
 Attention: only for utf8 <--> gbk
 
 try coding GBK
