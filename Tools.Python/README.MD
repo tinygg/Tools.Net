@@ -1,4 +1,6 @@
-# python写的工具集
+# Tools.Python
+
+## FileEncodingTransfer 文件编码批量转换脚本
 <pre>
 D:\personal\Tools.TINY\Tools.Python\FileEncodingTransfer>python coding.py utf8 filedir
 Attention: only for utf8 <--> gbk
