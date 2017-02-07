@@ -4,54 +4,54 @@ D:\personal\Tools.TINY\Tools.Python\FileEncodingTransfer\>python coding.py utf8 
 Attention: only for utf8 <--> gbk
 
 try coding GBK
->> converting file:<d:/personal/Tools.TINY/Tools.Python/FileEncodingTransfer/filedir\70207134257.png>
+>> converting file:<filedir\70207134257.png>
 try next ...
 
 try coding UTF-8
->> converting file:<d:/personal/Tools.TINY/Tools.Python/FileEncodingTransfer/filedir\70207134257.png>
+>> converting file:<filedir\70207134257.png>
 try next ...
 
 try to end.
 
 try coding GBK
->> converting file:<d:/personal/Tools.TINY/Tools.Python/FileEncodingTransfer/filedir\gbk.txt>
+>> converting file:<filedir\gbk.txt>
 try next ...
 
 try coding UTF-8
->> converting file:<d:/personal/Tools.TINY/Tools.Python/FileEncodingTransfer/filedir\gbk.txt>
+>> converting file:<filedir\gbk.txt>
 ok
 
 try coding GBK
->> converting file:<d:/personal/Tools.TINY/Tools.Python/FileEncodingTransfer/filedir\index.jsp>
+>> converting file:<filedir\index.jsp>
 try next ...
 
 try coding UTF-8
->> converting file:<d:/personal/Tools.TINY/Tools.Python/FileEncodingTransfer/filedir\index.jsp>
-ok
-
-
-try coding GBK
->> converting file:<d:/personal/Tools.TINY/Tools.Python/FileEncodingTransfer/filedir\main.css>
-try next ...
-
-try coding UTF-8
->> converting file:<d:/personal/Tools.TINY/Tools.Python/FileEncodingTransfer/filedir\main.css>
+>> converting file:<filedir\index.jsp>
 ok
 
 
 try coding GBK
->> converting file:<d:/personal/Tools.TINY/Tools.Python/FileEncodingTransfer/filedir\utf8.txt>
+>> converting file:<filedir\main.css>
 try next ...
 
 try coding UTF-8
->> converting file:<d:/personal/Tools.TINY/Tools.Python/FileEncodingTransfer/filedir\utf8.txt>
+>> converting file:<filedir\main.css>
+ok
+
+
+try coding GBK
+>> converting file:<filedir\utf8.txt>
+try next ...
+
+try coding UTF-8
+>> converting file:<filedir\utf8.txt>
 ok
 
 try coding GBK
->> converting file:<d:/personal/Tools.TINY/Tools.Python/FileEncodingTransfer/filedir\deepins\deeping.txt>
+>> converting file:<filedir\deepins\deeping.txt>
 try next ...
 
 try coding UTF-8
->> converting file:<d:/personal/Tools.TINY/Tools.Python/FileEncodingTransfer/filedir\deepins\deeping.txt>
+>> converting file:<filedir\deepins\deeping.txt>
 ok
 </pre>
