@@ -1,5 +1,5 @@
 # python写的工具集
- ```
+<pre>
 D:\personal\Tools.TINY>python d:/personal/Tools.TINY/Tools.Python/FileEncodingTransfer/coding.py utf8 d:/personal/Tools.TINY/Tools.Python/FileEncodingTransfer/filedir
 Attention: only for utf8 <--> gbk
 
@@ -54,4 +54,4 @@ try next ...
 try coding UTF-8
 >> converting file:<d:/personal/Tools.TINY/Tools.Python/FileEncodingTransfer/filedir\deepins\deeping.txt>
 ok
- ```
+</pre>
