@@ -18,7 +18,7 @@ def convert(file,out_enc="UTF-8",try_index=0):
 
     try:
         print "try coding %s" % in_enc
-        print ">> converting file:<%s>" % file
+        print "@ converting file: %s" % file
         f=codecs.open(file,'r',in_enc)
         new_content=f.read()
         codecs.open(file,'w',out_enc).write(new_content)
@@ -40,7 +40,7 @@ def explore(dir):
             explore(_dir)
 
 def main():
-    print "Attention: utf8 <--> gbk \r\n"
+    print "Attention: only for utf8 <--> gbk \r\n"
 
     for path in sys.argv[2:]:
         if(os.path.isfile(path)):
